@@ -52,9 +52,9 @@ Respectivos comandos do ROOT:
 ------------------------------------------------
 ```Python
 >>> root.tag
-... 'data'   
+'data'   
 >>> root.attrib 
-... { }
+'{ }'
 ```
 Para interagir com os FILHOS do ROOT:
 ------------------------------------------------
@@ -76,12 +76,22 @@ Podemos acessar FILHOS ESPECÍFICOS:
 Juntando DADOS
 ------------------------------------------------
 ```Python
+>>> parser = ET.XMLPullParser(['start', 'end'])
+        parser.feed('<mytag>sometext')
+        list(parser.read_events())
+        parser.feed(' more text</mytag>')
+        for event, elem in parser.read_events():
+            print(event)
+            print('<',elem.tag,'>', elem.text)
+'end'
+'<mytag> sometext more text'
 ```
 
 !
 ------------------------------------------------
 ```Python
 ```
+
 
 !
 ------------------------------------------------
