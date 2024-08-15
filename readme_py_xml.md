@@ -65,10 +65,10 @@ root = tree.getroot()
 
 ```Python
 >>> for child in root:
-...    print(child.tag, child.attrib)
-country {'name': 'Liechtenstein'}
-country {'name': 'Singapore'}
-country {'name': 'Panama'}
+        print(child.tag, child.attrib)
+'country {name: Liechtenstein}'
+'country {name: Singapore}'
+'country {nam: Panama}'
 ```
 
 <h3 style="font-size:20px; color: #FFFFF; margin:0px">Podemos acessar filhos específicos:</h3>
@@ -100,6 +100,38 @@ country {'name': 'Panama'}
 ```Python
 for neighbor in root.iter('neighbor'):
         print(neighbor.attrib)
+{'name': 'Austria'    , 'direction': 'E'}
+{'name': 'Switzerland', 'direction': 'W'}
+{'name': 'Malaysia'   , 'direction': 'N'}
+{'name': 'Costa Rica' , 'direction': 'W'}
+{'name': 'Colombia'   , 'direction': 'E'}
+```
+
+<h3 style="font-size:20px; color: #FFFFF; margin:0px">Encontrando Elementos Interessantes</h3>
+<hr>
+
+```Python
+# Element.findall()-> Encontra elementos que são filhos do elemento atual.
+# Element.find()   -> Encontra o primeiro filho com uma tag específica
+# Element.text()   -> Acessa o conteúdo de texto do elemento.
+# Element.get()    -> Acessa os atributos do elemento:
+```
+
+```Python
+>>> for country in root.findall('country'):
+        rank = country.find('rank').text
+        year = country.find('year').text
+        name = country.get('name')
+        print(name, rank, year)
+'Liechtenstein 1 2008'
+'Singapore 4 2011'
+'Panama 68 2011'
+```
+
+<h3 style="font-size:20px; color: #FFFFF; margin:0px">!!!</h3>
+<hr>
+
+```Python
 ```
 
 <h3 style="font-size:20px; color: #FFFFF; margin:0px">!!!</h3>
