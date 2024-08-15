@@ -1,20 +1,21 @@
-<h3 style="font-size:50px; color: #EF5A6F" align="center"><b>XML TOOLS</h3>
+<h3 style="font-size:50px; color: #EF5A6F; margin:0px" align="center"><b>XML TOOLS</h3>
+<h3 style="font-size:20px; color: #FFFFF; margin-bottom: 8px; margin-top:0px" align="center">ELEMENT TREE</h3>
 
 
-Biblioteca Element.Tree
-------------------------------------------------
 ```Python
 import xml.etree.ElementTree as ET
 ```
 
-O XML é formado por TAGs e Atributos:
-------------------------------------------------
+<h3 style="font-size:20px; color: #FFFFF; margin:0px">O XML é formado por TAGs e Atributos:</h3>
+<hr>
+
 ```Python
 <TAG> ATRIBUTO </TAG>
 ```
 
-Arquivo XML utilizado:
-------------------------------------------------
+<h3 style="font-size:20px; color: #FFFFF; margin:0px">Arquivo XML utilizado:</h3>
+<hr>
+
 ```XML
 <?xml version="1.0"?>
 <data>
@@ -41,23 +42,27 @@ Arquivo XML utilizado:
 </data>
 ```
 
-Importar arquivo XML
-------------------------------------------------
+<h3 style="font-size:20px; color: #FFFFF; margin:0px">Importar arquivo XML</h3>
+<hr>
+
 ```Python
 tree = ET.parse('caminho.xml')
 root = tree.getroot()
 ```
 
-Respectivos comandos do ROOT:
-------------------------------------------------
+<h3 style="font-size:20px; color: #FFFFF; margin:0px">Respectivos comandos do ROOT:</h3>
+<hr>
+
 ```Python
 >>> root.tag
 'data'   
 >>> root.attrib 
 '{ }'
 ```
-Para interagir com os FILHOS do ROOT:
-------------------------------------------------
+
+<h3 style="font-size:20px; color: #FFFFF; margin:0px">Para interagir com os filhos do ROOT:</h3>
+<hr>
+
 ```Python
 >>> for child in root:
 ...    print(child.tag, child.attrib)
@@ -66,15 +71,17 @@ country {'name': 'Singapore'}
 country {'name': 'Panama'}
 ```
 
-Podemos acessar FILHOS ESPECÍFICOS:
-------------------------------------------------
+<h3 style="font-size:20px; color: #FFFFF; margin:0px">Podemos acessar filhos específicos:</h3>
+<hr>
+
 ```Python
 >>> root[0][1].text
 '2008'
 ```
 
-Juntando DADOS
-------------------------------------------------
+<h3 style="font-size:20px; color: #FFFFF; margin:0px">Juntando dados</h3>
+<hr>
+
 ```Python
 >>> parser = ET.XMLPullParser(['start', 'end'])
         parser.feed('<mytag>sometext')
@@ -87,13 +94,16 @@ Juntando DADOS
 '<mytag> sometext more text'
 ```
 
-!
-------------------------------------------------
+<h3 style="font-size:20px; color: #FFFFF; margin:0px">Interagindo com Sub-árvores</h3>
+<hr>
+
 ```Python
+for neighbor in root.iter('neighbor'):
+        print(neighbor.attrib)
 ```
 
+<h3 style="font-size:20px; color: #FFFFF; margin:0px">!!!</h3>
+<hr>
 
-!
-------------------------------------------------
 ```Python
 ```
